@@ -9,7 +9,7 @@ import { MdOutlineDeleteForever } from "react-icons/md";
 import Profile from './Profile';  
 import axios from 'axios';
 import { login, logout } from '../Features/UserSlice';
-
+import Location from "./Location";
 const Home = () => {
 const { user, isLogin } = useSelector(state => state.users);
   const dispatch = useDispatch();
@@ -47,11 +47,7 @@ const { user, isLogin } = useSelector(state => state.users);
   const handleUpdateLocal = (id) => {
     navigate(`/updatelocal/${id}`);
   };
-  const profile=()=>{
-    dispatch(login())
-    navigate('/profile')
-  }
- 
+
 
 
 
@@ -98,7 +94,7 @@ const { user, isLogin } = useSelector(state => state.users);
                     onMouseOut={(e) => e.target.style.backgroundColor = 'transparent'}>My Profile</button>*/}
           <h3 style={styles.profileName}> Name :{user?.fname} {user?.lname}</h3> 
             <h3 style={styles.profileName}> Email: {user?.email}</h3>
-            <h3 style={styles.profileName}>City:</h3>
+            <h3 style={styles.profileName}>City:<Location/></h3>
           
             <button style={styles.menuItem} onMouseOver={(e) => e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'} 
                     onMouseOut={(e) => e.target.style.backgroundColor = 'transparent'}>About Us</button>
